@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(void) {
+int main()
+{
 
     int total_dias;
     int anos;
@@ -13,7 +13,7 @@ int main(void) {
     const int DIAS_POR_MES = 30;
 
     printf("Digite o total de dias sem acidentes: ");
-    scanf("%lld", &total_dias);
+    scanf("%d", &total_dias);
 
     // Cálculo dos anos completos
     anos = (int)(total_dias / DIAS_POR_ANO);
@@ -27,5 +27,4 @@ int main(void) {
 
     printf("Tempo sem acidentes: %d ano(s), %d mes(es) e %d dia(s)", anos, meses, dias);
 
-    return 0;
 }

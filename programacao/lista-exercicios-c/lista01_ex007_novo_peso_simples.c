@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(void) {
+int main()
+{
 
     double peso_atual;
     double peso_apos_engordar;
@@ -16,9 +16,8 @@ int main(void) {
     peso_apos_engordar = peso_atual * (1 + TAXA_ENGORDAR);
     peso_apos_emagrecer = peso_atual * (1 - TAXA_EMAGRECER);
 
-    printf("\nPeso atual           : %.2lf kg\n", peso_atual);
-    printf("Se engordar 15%%     : %.2lf kg\n", peso_apos_engordar);
-    printf("Se emagrecer 20%%    : %.2lf kg\n", peso_apos_emagrecer);
+    printf("\nPeso atual          : %.2lf kg\n", peso_atual);
+    printf("Se engordar %.0lf%%     : %.2lf kg\n", TAXA_ENGORDAR * 100, peso_apos_engordar);
+    printf("Se emagrecer %.0lf%%    : %.2lf kg\n", TAXA_EMAGRECER * 100, peso_apos_emagrecer);
 
-    return 0;
 }

@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(void) {
+int main()
+{
 
     int quantidade_sanduiches;
     double quilos_queijo;
@@ -12,14 +12,13 @@ int main(void) {
     scanf("%d", &quantidade_sanduiches);
 
     /* Converte para quilos (double para manter casas decimais) */
-    quilos_queijo = (double)quantidade_sanduiches * 2 * 50 / 1000;
-    quilos_presunto = (double)quantidade_sanduiches * 1 * 50 / 1000;
-    quilos_carne = (double)quantidade_sanduiches * 1 * 100 / 1000;
+    quilos_queijo = (double)quantidade_sanduiches * 2 * 5 / 100;
+    quilos_presunto = (double)quantidade_sanduiches * 5 / 100;
+    quilos_carne = (double)quantidade_sanduiches / 10;
 
     printf("\nPara produzir %d sanduiche(s) voce precisa de:\n", quantidade_sanduiches);
-    printf("- Queijo  : %.3f kg\n", quilos_queijo);
-    printf("- Presunto: %.3f kg\n", quilos_presunto);
-    printf("- Carne   : %.3f kg\n", quilos_carne);
+    printf("- Queijo  : %.3lf kg\n", quilos_queijo);
+    printf("- Presunto: %.3lf kg\n", quilos_presunto);
+    printf("- Carne   : %.3lf kg\n", quilos_carne);
 
-    return 0;
 }

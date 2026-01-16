@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(void) {
+int main()
+{
     
     double salario_inicial;
     double salario_com_aumento;
@@ -19,5 +19,4 @@ int main(void) {
     printf("Salario com aumento   : R$ %.2lf  (aumento de %.0f%%)\n", salario_com_aumento, TAXA_AUMENTO * 100);
     printf("Salario final (apos imposto de %.0f%%): R$ %.2lf\n", TAXA_IMPOSTO * 100, salario_final);
 
-    return 0;
 }
