@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(void) {
+int main()
+{
 
     double base_maior;  
     double base_menor;
@@ -21,5 +21,4 @@ int main(void) {
 
     printf("A area do trapezio eh: %.2lf", area_do_trapezio); 
 
-    return 0;
 }

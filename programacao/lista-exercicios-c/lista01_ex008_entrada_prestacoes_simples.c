@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(void) {
+int main()
+{
 
     double valor_mercadoria;
     int total_centavos;
@@ -30,5 +30,4 @@ int main(void) {
     printf("Entrada               : R$ %.2lf\n", (double) entrada_centavos / 100);
     printf("Prestacao 2 x de      : R$ %.2lf\n", (double) prestacao_reais);
     
-    return 0;
 }

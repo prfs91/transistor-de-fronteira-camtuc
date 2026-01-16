@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(void) {
+int main()
+{
 
     double preco_por_litro;
     double valor_pago;
@@ -17,5 +17,4 @@ int main(void) {
 
     printf("Com R$ %.2lf, ao preco de R$ %.2lf por litro, voce abastece: %.3lf litros", valor_pago, preco_por_litro, litros_abastecidos);
 
-    return 0;
 }

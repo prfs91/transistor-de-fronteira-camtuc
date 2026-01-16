@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(void) {
+int main()
+{
 
     double nota1;
     double nota2;
@@ -21,9 +21,8 @@ int main(void) {
     scanf("%lf", &nota3);
 
     soma_ponderada = (nota1 * peso1) + (nota2 * peso2) + (nota3 * peso3);
-    media_ponderada = soma_ponderada / (double)soma_pesos;
+    media_ponderada = soma_ponderada / soma_pesos;
 
     printf("Media ponderada = %.2lf\n", media_ponderada);
 
-    return 0;
 }
