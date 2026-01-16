@@ -1,77 +1,116 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(void) {
+int main() {
 
-    int valor_saque;
+    int valor;
+    int resto;
 
-    // Lista das notas e valores, da maior para a menor (fundamental para o método guloso).
-    int valores_cedulas[] = {200, 100, 50, 20, 10, 5, 2, 1};
+    int n200, n100, n50, n20, n10, n5, n2, n1;
 
-    // Vetor que armazenará quantas notas/moedas de cada valor serão usadas.
-    int quantidade[8] = {0};
+    printf("Digite o valor do saque: R$ ");
+    scanf("%d", &valor);
 
-    int total_tipos = 8;  // Quantidade de tipos de cédulas/moedas existentes.
+    resto = valor;
 
-    // ---- MENSAGENS INICIAIS ----
-    printf("CAIXA ELETRONICO - DISTRIBUICAO OTIMA DE NOTAS E MOEDAS\n");
-    printf("Cédulas utilizadas: 200, 100, 50, 20, 10, 5, 2 reais\n");
-    printf("Moeda utilizada : 1 real\n");
-    printf("-----------------------------------------------\n");
-
-    // ---- LEITURA DO VALOR ----
-    printf("Digite o valor do saque (somente reais, inteiro): R$ ");
-    if (scanf("%d", &valor_saque) != 1) {     // Se scanf não ler exatamente 1 valor, houve erro.
-        printf("Erro: entrada invalida. Digite um numero inteiro.\n");
-        return 1;  // Retorna 1 porque o programa terminou com erro.
+    // ---- NOTA DE 200 REAIS ----
+    if (resto >= 200)
+    {          // Verifica se é possível usar ao menos uma nota de 200
+        n200 = resto / 200;      // Calcula quantas notas de 200 cabem no valor restante
+        resto = resto % 200;     // Atualiza o valor restante após retirar essas notas
+    }
+    else
+    {
+        n200 = 0;                // Caso não caiba nenhuma nota de 200
     }
 
-    // ---- VALIDAÇÃO DO VALOR ----
-    if (valor_saque < 0) {          // Não existe saque negativo.
-        printf("Erro: o valor nao pode ser negativo.\n");
-        return 1;
+    // ---- NOTA DE 100 REAIS ----
+    if (resto >= 100)
+    {          // Verifica se é possível usar ao menos uma nota de 100
+        n100 = resto / 100;      // Calcula quantas notas de 100 cabem
+        resto = resto % 100;     // Atualiza o restante
+    }
+    else
+    {
+        n100 = 0;                // Nenhuma nota de 100 será usada
     }
 
-    // ---- PROCESSO DE SEPARAR NOTAS/MOEDAS ----
-    int restante = valor_saque;     // "restante" é quanto ainda falta distribuir.
-
-    // Percorre cada tipo de nota/moeda começando da maior.
-    for (int i = 0; i < total_tipos; i++) {
-
-        int valor_da_cedula = valores_cedulas[i];  // Valor da cédula atual (ex.: 200, depois 100...)
-
-        // Se cabe ao menos uma dessa cédula:
-        if (restante >= valor_da_cedula) {
-
-            // Quantas cabem? Divisão inteira responde.
-            quantidade[i] = restante / valor_da_cedula;
-
-            // Atualiza quanto ainda falta distribuir (resto da divisão).
-            restante = restante % valor_da_cedula;
-
-        } else {
-            quantidade[i] = 0;   // Não cabe nenhuma unidade dessa nota.
-        }
+    // ---- NOTA DE 50 REAIS ----
+    if (resto >= 50)
+    {           // Verifica se é possível usar nota de 50
+        n50 = resto / 50;        // Calcula quantas notas de 50 cabem
+        resto = resto % 50;      // Atualiza o restante
+    }
+    else
+    {
+        n50 = 0;                 // Nenhuma nota de 50
     }
 
-    // ---- EXIBIÇÃO DO RESULTADO ----
-    printf("\nValor solicitado: R$ %d\n", valor_saque);
-    printf("Distribuicao otima:\n");
-
-    for (int i = 0; i < total_tipos; i++) {
-
-        // Só imprime se existir ao menos uma nota/moeda daquele tipo.
-        if (quantidade[i] > 0) {
-            printf("- %d unidade(s) de R$ %d\n",
-                   quantidade[i], valores_cedulas[i]);
-        }
+    // ---- NOTA DE 20 REAIS ----
+    if (resto >= 20)
+    {           // Verifica se é possível usar nota de 20
+        n20 = resto / 20;        // Calcula quantas notas de 20 cabem
+        resto = resto % 20;      // Atualiza o restante
+    }
+    else
+    {
+        n20 = 0;                 // Nenhuma nota de 20
     }
 
-    // Teoricamente, nunca sobra resto porque temos moeda de 1 real.
-    if (restante != 0) {
-        printf("\nAviso: sobrou R$ %d nao distribuido. (Isso nao deve ocorrer.)\n",
-               restante);
+    // ---- NOTA DE 10 REAIS ----
+    if (resto >= 10)
+    {           // Verifica se é possível usar nota de 10
+        n10 = resto / 10;        // Calcula quantas notas de 10 cabem
+        resto = resto % 10;      // Atualiza o restante
+    }
+    else
+    {
+        n10 = 0;                 // Nenhuma nota de 10
     }
 
-    return 0;  // Termina o programa com sucesso.
+    // ---- NOTA DE 5 REAIS ----
+    if (resto >= 5)
+    {            // Verifica se é possível usar nota de 5
+        n5 = resto / 5;          // Calcula quantas notas de 5 cabem
+        resto = resto % 5;       // Atualiza o restante
+    }
+    else
+    {
+        n5 = 0;                  // Nenhuma nota de 5
+    }
+
+    // ---- NOTA DE 2 REAIS ----
+    if (resto >= 2)
+    {            // Verifica se é possível usar nota de 2
+        n2 = resto / 2;          // Calcula quantas notas de 2 cabem
+        resto = resto % 2;       // Atualiza o restante
+    }
+    else
+    {
+        n2 = 0;                  // Nenhuma nota de 2
+    }
+
+    // ---- NOTA DE 1 REAL ----
+    if (resto >= 1)
+    {            // Verifica se ainda resta algum valor
+        n1 = resto / 1;          // Calcula quantas notas de 1 real são necessárias
+        resto = resto % 1;       // Atualiza o restante (sempre ficará 0)
+    }
+    else
+    {
+        n1 = 0;                  // Nenhuma moeda de 1 real
+    }
+
+    // Exibe o resultado final
+    printf("\nDistribuicao otima:\n");
+
+    // Imprime apenas as notas/moedas que foram utilizadas
+    if (n200 > 0) printf("%d nota(s) de R$ 200\n", n200);
+    if (n100 > 0) printf("%d nota(s) de R$ 100\n", n100);
+    if (n50 > 0)  printf("%d nota(s) de R$ 50\n", n50);
+    if (n20 > 0)  printf("%d nota(s) de R$ 20\n", n20);
+    if (n10 > 0)  printf("%d nota(s) de R$ 10\n", n10);
+    if (n5 > 0)   printf("%d nota(s) de R$ 5\n", n5);
+    if (n2 > 0)   printf("%d nota(s) de R$ 2\n", n2);
+    if (n1 > 0)   printf("%d nota(s) de R$ 1\n", n1);
+
 }
