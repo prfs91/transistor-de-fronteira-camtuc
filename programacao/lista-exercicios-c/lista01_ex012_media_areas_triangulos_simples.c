@@ -2,7 +2,7 @@
 
 int main()
 {
-    const int TOTAL_TRIANGULOS = 2;
+    const int TOTAL_TRIANGULOS = 5;
     int cont = 0;
     double base;
     double altura;
