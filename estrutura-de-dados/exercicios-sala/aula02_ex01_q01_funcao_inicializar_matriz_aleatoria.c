@@ -1,4 +1,4 @@
-#include <stdio.h>   // biblioteca para entrada e saída (printf)
+#include <stdio.h>
 #include <stdlib.h>  // biblioteca para funções rand() e srand()
 #include <time.h>    // biblioteca para função time()
 
@@ -8,35 +8,38 @@
 // função que preenche a matriz com valores aleatórios de 0 a 100
 void inicializarMatrizAleatoria(int matriz[LIN][COL]) {
     
-    for (int i = 0; i < LIN; i++) {          // percorre as linhas
-        for (int j = 0; j < COL; j++) {      // percorre as colunas
-            matriz[i][j] = rand() % 101;     // gera número entre 0 e 100
+    for (int i = 0; i < LIN; i++)
+    {
+        for (int j = 0; j < COL; j++)
+        {
+            matriz[i][j] = rand() % 101; // gera número entre 0 e 100
         }
     }
 }
 
 void escrever_matriz(int matriz[LIN][COL])
 {
-    for(int i = 0; i < LIN; i++)          // percorre as linhas
+    for(int i = 0; i < LIN; i++)
     {
-        for(int j = 0; j < COL; j++)      // percorre as colunas
+        for(int j = 0; j < COL; j++)
         {
-            printf("%5d ", matriz[i][j]);  // imprime valor com espaço
+            printf("%d\t ", matriz[i][j]);
         }
-        printf("\n");                     // quebra linha ao final da linha
+        printf("\n");
     }
 }
 
-int main() {
+int main()
+{
 
-    int matriz[LIN][COL];  // declaração da matriz 5x7
+    int matriz[LIN][COL];
 
-    srand(time(NULL));     // inicializa a semente aleatória (evita repetir valores)
+    srand(time(NULL)); // inicializa a semente aleatória (evita repetir valores)
 
-    inicializarMatrizAleatoria(matriz);  // chama a função para preencher a matriz
+    inicializarMatrizAleatoria(matriz);
 
-    // exibe a matriz para conferência
+    //saída de dados
     escrever_matriz(matriz);
 
-    return 0;  // indica que o programa terminou corretamente
+    return 0;
 }
