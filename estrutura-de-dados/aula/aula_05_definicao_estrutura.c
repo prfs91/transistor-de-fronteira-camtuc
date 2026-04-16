@@ -1,13 +1,6 @@
 #include<stdio.h>
 #include <malloc.h>
 
-struct pessoa
-{
-    char *nome;
-    int idade;
-    char *cpf;
-};
-
 struct endereco
 {
     char *logradouro;
@@ -16,24 +9,79 @@ struct endereco
     char *cep;
 };
     
-typedef struct pessoa Pessoa;
 typedef struct endereco Endereco;
+
+struct pessoa
+{
+    char *nome;
+    int idade;
+    char *cpf;
+    char *email;
+    Endereco *endereco;
+};
+
+typedef struct pessoa Pessoa;
+
+Pessoa *newPessoa (char *nome, int idade, char *cpf, char *email, Endereco *endereco){
+
+    Pessoa *nova = (Pessoa *) malloc(sizeof(Pessoa));
+
+    nova -> nome = nome;
+    nova -> idade = idade;
+    nova -> cpf = cpf;
+    nova -> email = email;
+    nova -> endereco = endereco;
+
+    return nova;
+
+}
+
+void printPessoa (Pessoa *pes){
+    printf("Nome: %s\n", pes -> nome);
+    printf("Idade: %d\n", pes -> idade);
+    printf("CPF: %s\n", pes -> cpf);
+    printf("Email: %s\n", pes -> email);
+}
+
+
+
+Endereco *newEndereco (char *logradouro, int numero, char *cidade, char *cep){
+
+    Endereco *novo = (Endereco *) malloc(sizeof(Endereco));
+
+    novo -> logradouro = logradouro;
+    novo -> numero = numero;
+    novo -> cidade = cidade;
+    novo -> cep = cep;
+
+    return novo;
+
+}
+
+void printEndereco (Endereco *end){
+    printf("%s, %d\n", end -> logradouro, end -> numero);
+    printf("%s, %s\n", end -> cidade, end -> cep);
+}
+
+
+
+
+
 
 int main()
 {
-    Pessoa *p1 = (Pessoa *) malloc(sizeof (Pessoa));
 
-    p1 -> nome = "P1";
-    p1 -> idade = 1;
-    p1 -> cpf = "000.000.000-55";
+    Endereco *e1 = newEndereco("Rua Y", 34, "Cidade 2", "14789-789");
+
+    Pessoa *p1 = newPessoa("Roberta", 34, "000.000.000-0", "ret@hotmail.com", e1);
+
+    printf("%s", p1 -> endereco -> logradouro);
+
+    printf("Digite a quantidades de endereco que deseja armazenar: ");
+    int qtd = scanf("%d", &qtd);
+
     
-    Endereco *e1 = (Endereco*) malloc(sizeof(Endereco));
-
-    e1 -> logradouro = "Rua dos Bobos";
-    e1 -> numero = 0;
-    e1 -> cidade= "Bobolândia";
-    e1 -> cep = "00.000-000";
-
+    Pessoa ** pessoas = (Pessoa **) malloc (qtd * sizeof (Pessoa *));
 
     
 }
