@@ -30,7 +30,7 @@ Aqui documento tudo que atravessa minha formação (do básico ao avançado) res
 - Métodos Numéricos para Engenharia (Concluído)
 - Física I (Concluído)
 - Física II (Concluído)
-- Variáveis Complexas
+- Variáveis Complexas (Concluído)
 - Teoria da Computação I
 - Metodologia Científica
 - Educação Ambiental
@@ -41,8 +41,8 @@ Aqui documento tudo que atravessa minha formação (do básico ao avançado) res
 
 ### 💻 Programação & Sistemas - Onde eu respiro melhor
 
-- Programação
-- Estruturas de Dados
+- Programação (Concluído)
+- Estruturas de Dados (Cursando)
 - Engenharia de Software I
 - Programação Orientada a Objeto
 - Banco de Dados I
@@ -55,10 +55,10 @@ Aqui documento tudo que atravessa minha formação (do básico ao avançado) res
 
 ### 🔌 Hardware & Eletrônica - Onde a tensão sobe
 
-- Eletrônica Analógica
+- Eletrônica Analógica (Cursando)
 - Circuitos Elétricos
-- Eletrônica Digital
-- Arquitetura de Computadores
+- Eletrônica Digital (Concluído)
+- Arquitetura de Computadores (Cursando)
 - Microprocessadores e Microcontroladores
 - Projeto de Hardware e Interfaceamento
 - Processamento Digital de Sinais
@@ -72,7 +72,7 @@ Aqui documento tudo que atravessa minha formação (do básico ao avançado) res
 - Redes de Computadores II
 - Comunicação de Dados
 - Teoria Eletromagnética
-- Sinais e Sistemas
+- Sinais e Sistemas (Cursando)
 - Automação Industrial e Controle de Processos
 
 > _“A vida também é um sistema dinâmico, instável, mas controlável.”_
@@ -80,8 +80,8 @@ Aqui documento tudo que atravessa minha formação (do básico ao avançado) res
 
 ### 🛠️ Projetos – Onde tudo se conecta
 
-- Projetos de Engenharia I
-- Projetos de Engenharia II
+- Projetos de Engenharia I (Concluído)
+- Projetos de Engenharia II (Cursando)
 - Projetos de Engenharia III
 - Atividades Curriculares de Extensão I
 - Atividades Curriculares de Extensão II
@@ -158,4 +158,4 @@ _mas sempre pronto para a próxima mudança de estado.”_
 
 ---
 
-**Última modificação em:** 28/11/2025
+**Última modificação em:** 16/04/2026
