@@ -67,12 +67,12 @@ Certifique-se de estar com o ambiente virtual ativo e as bibliotecas instaladas:
 .\.venv\Scripts\activate
 
 # 2. Instalar dependências
-pip install networkx graphviz matplotlib
+pip install networkx matplotlib
 ```
 ### Rodar o script
 
 ```powershell
-python nome_do_seu_trabalho.py
+python percurso_arvore.ipynb
 ```
 ## 📊 Funcionalidades
 
