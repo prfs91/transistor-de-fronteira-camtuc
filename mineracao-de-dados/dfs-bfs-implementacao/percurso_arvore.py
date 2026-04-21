@@ -1,6 +1,17 @@
 from collections import deque
 import networkx as nx
 import matplotlib.pyplot as plt
+import os
+
+# ==========================================
+# 1. CAMINHO DA PASTA DE SAÍDA
+# ==========================================
+
+PASTA_OUTPUT = r"D:\Projetos\GitHub\UFPA\transistor-de-fronteira-camtuc\mineracao-de-dados\dfs-bfs-implementacao\output\figures\python"
+
+# Cria a pasta caso ela não exista para evitar erros
+if not os.path.exists(PASTA_OUTPUT):
+    os.makedirs(PASTA_OUTPUT)
 
 # ==========================================
 # 1. DEFINIÇÃO DE DADOS E ESTRUTURA
@@ -112,7 +123,10 @@ def salvar_texto_como_imagem(res_dfs, res_bfs, nome_arquivo="resultado_percursos
     )
 
     plt.text(0.01, 0.5, conteudo, family='monospace', fontsize=10, verticalalignment='center', linespacing=1.8)
-    plt.savefig(nome_arquivo, bbox_inches='tight', dpi=300, facecolor='white')
+    
+    caminho_arquivo = os.path.join(PASTA_OUTPUT, nome_arquivo)
+    plt.savefig(caminho_arquivo, bbox_inches='tight', dpi=300, facecolor='white')
+
     plt.show()
 
 def salvar_busca_como_imagem(alvo, res_dfs, res_bfs, nome_arquivo="resultado_busca.png"):
@@ -130,7 +144,11 @@ def salvar_busca_como_imagem(alvo, res_dfs, res_bfs, nome_arquivo="resultado_bus
     plt.text(0.05, 0.5, conteudo, family='monospace', fontsize=11, 
              verticalalignment='center', linespacing=2, fontweight='bold')
 
-    plt.savefig(nome_arquivo, bbox_inches='tight', dpi=300, facecolor='#f9f9f9')
+    nome_final = f"resultado_busca_{alvo}.png"
+    caminho_arquivo = os.path.join(PASTA_OUTPUT, nome_final)
+    plt.savefig(caminho_arquivo, bbox_inches='tight', dpi=300, facecolor='#f9f9f9')
+
+
     plt.show()
 
 def desenhar_comparativo_visual(caminho_dfs, caminho_bfs, alvo):
