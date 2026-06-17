@@ -4,7 +4,6 @@
 #include <string.h>
 #include <locale.h>
 
-// --- CONFIGURAÇÕES ESTÉTICAS ---
 #define RESET           "\033[0m"
 #define VERDE           "\033[1;32m"
 #define AMARELO         "\033[1;33m"
@@ -19,8 +18,6 @@ typedef struct No {
 } No;
 
 typedef void (*FuncaoBusca)(No*, char, char*, int*);
-
-// --- GESTÃO DE MEMÓRIA ---
 
 No* criar_no(char id) {
     No* novo = (No*)malloc(sizeof(No));
@@ -50,8 +47,6 @@ void liberar_arvore(No* no) {
     free(no);
 }
 
-// --- ALGORITMOS DE BUSCA ---
-
 void busca_profundidade(No* atual, char alvo, char* caminho, int* total) {
     if (!atual) return;
     caminho[(*total)++] = atual->identificador;
@@ -75,8 +70,6 @@ void busca_largura(No* raiz, char alvo, char* caminho, int* total) {
     }
 }
 
-// --- EXPORTAÇÃO GRÁFICA (REFATORADA) ---
-
 void escrever_nos_dot(FILE* arq, No* no, char* caminho, int total, char alvo) {
     if (!no) return;
     char* cor = "white";
@@ -94,19 +87,14 @@ void escrever_nos_dot(FILE* arq, No* no, char* caminho, int total, char alvo) {
 }
 
 void configurar_estilo_dot(FILE* f, char* titulo) {
-    // Título e Estilo Geral
     fprintf(f, "    label=\"%s\"; labelloc=\"t\"; fontsize=26; fontname=\"Arial Bold\";\n", titulo);
     
-    // Formato Quadrado e Escala
     fprintf(f, "    ratio=1.0; size=\"10,10!\";\n");
     
-    // Medidas: ranksep=0.3 encurta as setas; nodesep afasta as bolas grandes; pad é a margem
     fprintf(f, "    pad=0.5; nodesep=0.6; ranksep=0.3;\n");
     
-    // Configuração dos Nós (Bolas 1.2 e Letras 22)
     fprintf(f, "    node [fontname=\"Arial Bold\", shape=circle, width=1.2, height=1.2, fixedsize=true, fontsize=22];\n");
     
-    // Estilo das Linhas
     fprintf(f, "    edge [arrowhead=vee, arrowsize=1.0];\n");
 }
 
@@ -129,8 +117,6 @@ void gerar_visual(No* raiz, char* caminho, int total, char alvo, char* nome_arq,
     system(cmd);
 }
 
-// --- PROCESSAMENTO E OUTPUT (REFATORADO) ---
-
 void imprimir_resultado_no_terminal(char* rotulo, char* caminho, int total, char alvo) {
     printf("\n" VERDE "[%s]" RESET " Ordem: ", rotulo);
     for (int i = 0; i < total; i++) printf("%c ", caminho[i]);
@@ -148,7 +134,6 @@ void processar_busca(No* raiz, char alvo, FuncaoBusca algoritmo, char* rotulo, c
 
     algoritmo(raiz, alvo, caminho, &total);
 
-    // Validação de existência do nó
     bool encontrado = (alvo == '\0' || (total > 0 && caminho[total - 1] == alvo));
     if (!encontrado) {
         printf("\n" VERMELHO "[%s] ERRO: O nó '%c' não existe." RESET, rotulo, alvo);
@@ -157,14 +142,11 @@ void processar_busca(No* raiz, char alvo, FuncaoBusca algoritmo, char* rotulo, c
 
     imprimir_resultado_no_terminal(rotulo, caminho, total, alvo);
     
-    // Só gera imagem se for uma busca com alvo real
     if (alvo != '\0') {
         sprintf(titulo_imagem, "Algoritmo %s", rotulo);
         gerar_visual(raiz, caminho, total, alvo, nome_arquivo, titulo_imagem);
     }
 }
-
-// --- CONSTRUÇÃO E INTERFACE ---
 
 void desenhar_mapa_hierarquico(No* no, char* prefixo, bool ultimo) {
     if (!no) return;
@@ -202,10 +184,8 @@ int main() {
     printf("\n%s\n" AMARELO "        VISUALIZADOR DE BUSCA EM ARVORES\n" RESET "%s\n", DIVISOR, DIVISOR);
     desenhar_mapa_hierarquico(raiz, "", true);
 
-    // Estado Inicial
     gerar_visual(raiz, "", 0, '\0', "arvore_completa", "Estrutura da Arvore Original");
 
-    // Varreduras Totais (Apenas Terminal)
     processar_busca(raiz, '\0', busca_profundidade, "DFS COMPLETO", NULL);
     processar_busca(raiz, '\0', busca_largura, "BFS COMPLETO", NULL);
 
@@ -213,11 +193,9 @@ int main() {
     if (scanf(" %c", &alvo) != 1) return 1;
     if (alvo >= 'a') alvo -= 32;
 
-    // Buscas Específicas (Terminal + Imagens)
     processar_busca(raiz, alvo, busca_profundidade, "RESULTADO DFS", "busca_dfs_resultado");
     processar_busca(raiz, alvo, busca_largura, "RESULTADO BFS", "busca_bfs_resultado");
 
     printf("\n\n" VERMELHO ">>> Memoria liberada. Encerrando..." RESET "\n");
     liberar_arvore(raiz);
-    return 0;
 }

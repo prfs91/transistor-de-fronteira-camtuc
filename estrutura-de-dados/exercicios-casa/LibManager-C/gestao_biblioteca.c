@@ -44,7 +44,7 @@
 #define ESTADO_DISPONIVEL 0
 #define ESTADO_EMPRESTADO 1
 
-typedef struct
+struct livro
 {
     char titulo[TAMANHO_TITULO];
     char autor[TAMANHO_AUTOR];
@@ -52,7 +52,9 @@ typedef struct
     char editora[TAMANHO_EDITORA];
     int ano_edicao;
     int situacao_emprestimo; 
-} Livro;
+};
+
+typedef struct livro Livro;
 
 void limparTela()
 {
